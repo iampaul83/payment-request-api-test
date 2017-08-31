@@ -7,5 +7,12 @@
     </head>
     <body>
         <iframe src="https://iampaul83.github.io/payment-request-api-test/iframe.html" allowpaymentrequest="true"></iframe>
+        <script>
+            document.querySelector('iframe').addEventListener("message", receiveMessage, false)
+            function receiveMessage(event) {
+                console.log(event)
+                alert(event.data)
+            }
+        </script>
     </body>
 </html>
