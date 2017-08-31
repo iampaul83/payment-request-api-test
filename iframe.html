@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>TAPPAY IFRAME</title>
+    <title>IFRAME PAGE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -18,7 +18,7 @@
             total: {
                 label: 'Total',
                 amount: {
-                    currency: 'USD',
+                    currency: 'TWD',
                     value: 10
                 }
             }
@@ -31,10 +31,16 @@
                 paymentDetails,
                 options
             );
-            alert('qq')
             // Call when you wish to show the UI to the user.  
             request.show()
-                .then()
+                .then((paymentResponse) => {  
+                    // get prime
+
+                    // return prime to sdk
+                    parent.postMessage('prime', '*', 'this-is-psudo-prime')
+
+                    return paymentResponse.complete();  
+                })  
                 .catch((err) => alert(err));
         } catch (e) {
             alert(e)
