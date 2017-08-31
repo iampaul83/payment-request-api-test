@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TAPPAY IFRAME</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script>
+        const supportedPaymentMethods = [
+            {
+                supportedMethods: ['basic-card'],
+            }
+        ];
+        const paymentDetails = {
+            total: {
+                label: 'Total',
+                amount: {
+                    currency: 'USD',
+                    value: 10
+                }
+            }
+        };
+        // Options isn't required.  
+        const options = {};
+        try {
+            const request = new PaymentRequest(
+                supportedPaymentMethods,
+                paymentDetails,
+                options
+            );
+            alert('qq')
+            // Call when you wish to show the UI to the user.  
+            request.show()
+                .then()
+                .catch((err) => alert(err));
+        } catch (e) {
+            alert(e)
+        }
+    </script>
+</body>
+
+</html>
