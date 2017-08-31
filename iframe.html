@@ -35,7 +35,7 @@
             request.show()
                 .then((paymentResponse) => {  
                     // get prime
-                    alert(JSON.stringify(paymentResponse))
+                    alert(JSON.stringify(paymentResponse.details))
                     // return prime to sdk
                     parent.postMessage('getPrimeSuccess: this-is-psudo-prime', '*')
 
